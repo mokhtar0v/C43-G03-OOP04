@@ -1,4 +1,5 @@
 ﻿using Session4OOP.Interface_Example_02;
+using Session4OOP.Interface_Example_03;
 using Session4OOP.Interface_Example1;
 
 namespace Session4OOP
@@ -37,6 +38,16 @@ namespace Session4OOP
             PrintTenNumberFromSeries(seriesByThree);
 
 
+            #endregion
+
+            #region Interface Example 03
+            Airplane airplane = new Airplane();
+
+            IMovable movable = airplane;
+            movable.Forward();
+
+            IFlyable flyable = airplane;
+            flyable.Forward();
             #endregion
         }
     }
