@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Session4OOP.Built_in_interfaces
 {
-    class Employee : ICloneable
+    class Employee : ICloneable, IComparable
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -37,6 +37,17 @@ namespace Session4OOP.Built_in_interfaces
         public override string ToString()
         {
             return $"ID: {Id}, Name: {Name}, Salary: {Salary:c}, Department: {department}";
+        }
+
+        public int CompareTo(object? obj)
+        {
+            Employee? other = (Employee?)obj; //Explicit and Unsafe casting
+            // we can prevent this casting by inherit generic IComparable interface
+            return this.Salary.CompareTo(other?.Salary);
+            ////if (other is null) return 1;
+            //if (this.Salary > other?.Salary || other is null) return 1;
+            //else if (this.Salary < other?.Salary) return -1;
+            //return 0;
         }
     }
 }

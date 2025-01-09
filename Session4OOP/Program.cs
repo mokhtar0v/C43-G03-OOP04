@@ -108,6 +108,22 @@ namespace Session4OOP
             //Console.WriteLine(employee01.department?.Title); //sales
             #endregion
 
+            #region Built-in interface ICompareable
+            Employee[] employees =
+            {
+                new Employee() { Id = 1,Name = "Ahmed",Salary = 7_000 },
+                new Employee() { Id = 2,Name = "Ali",Salary = 6_000 },
+                new Employee() { Id = 3,Name = "Omar",Salary = 6_500 },
+                new Employee() { Id = 4,Name = "Mohamed",Salary = 9_000 },
+
+            };
+            Array.Sort(employees);
+            foreach( Employee employee in employees)
+            {
+                Console.WriteLine(employee);
+            }
+            #endregion
+
         }
     }
 }
