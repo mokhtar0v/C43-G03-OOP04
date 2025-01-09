@@ -117,11 +117,15 @@ namespace Session4OOP
                 new Employee() { Id = 4,Name = "Mohamed",Salary = 9_000 },
 
             };
-            Array.Sort(employees);
+            Array.Sort(employees, new IDComparer());
             foreach( Employee employee in employees)
             {
                 Console.WriteLine(employee);
             }
+            #endregion
+
+            #region Built-in interface IComparer
+
             #endregion
 
         }
