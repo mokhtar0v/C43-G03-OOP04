@@ -1,6 +1,7 @@
 ﻿using Session4OOP.Interface_Example_02;
 using Session4OOP.Interface_Example_03;
 using Session4OOP.Interface_Example1;
+using Session4OOP.Built_in_interfaces;
 
 namespace Session4OOP
 {
@@ -78,11 +79,34 @@ namespace Session4OOP
             #endregion
             #endregion
 
+            #region Part 06
             string[] names01 = ["Ahmed", "Ali"];
             string[] names02 = ["Omar", "Abdo"];
             Console.WriteLine($"names01.GetHashCode(): {names01.GetHashCode()}, names02.GetHashCode(): {names02.GetHashCode()}");
             names02 = (string[])names01.Clone();
             Console.WriteLine($"names01.GetHashCode(): {names01.GetHashCode()}, names02.GetHashCode(): {names02.GetHashCode()}");
+            #endregion
+
+            #region Built-in interface IClonable
+            Employee employee01 = new Employee() { Id = 10, Name = "Ahmed", Salary = 8_000, department = new Department() { Code = 10101, Title = "Sales" } };
+            Employee employee02 = new Employee() { Id = 20, Name = "Omar", Salary = 7_000, department = new Department() { Code = 20022, Title = "HR" } };
+
+            Console.WriteLine($"employee01.GetHashCode(): {employee01.GetHashCode()}");
+            Console.WriteLine($"employee02.GetHashCode(): {employee02.GetHashCode()}");
+
+            employee02 = (Employee)employee01.Clone(); //deep copy using clone method
+            employee02 = new Employee(employee01); // deep copy using constructor
+
+            employee02.Salary = 2000;
+            if (employee02.department is not null) 
+                employee02.department.Title = "NEW"; 
+            Console.WriteLine($"employee01.GetHashCode(): {employee01.GetHashCode()}");
+            Console.WriteLine($"employee02.GetHashCode(): {employee02.GetHashCode()}");
+
+            Console.WriteLine($"Employee01: {employee01}");
+            Console.WriteLine($"Employee02: {employee02}");
+            //Console.WriteLine(employee01.department?.Title); //sales
+            #endregion
 
         }
     }
