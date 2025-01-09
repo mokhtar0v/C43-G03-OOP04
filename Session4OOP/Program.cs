@@ -77,6 +77,13 @@ namespace Session4OOP
 
             #endregion
             #endregion
+
+            string[] names01 = ["Ahmed", "Ali"];
+            string[] names02 = ["Omar", "Abdo"];
+            Console.WriteLine($"names01.GetHashCode(): {names01.GetHashCode()}, names02.GetHashCode(): {names02.GetHashCode()}");
+            names02 = (string[])names01.Clone();
+            Console.WriteLine($"names01.GetHashCode(): {names01.GetHashCode()}, names02.GetHashCode(): {names02.GetHashCode()}");
+
         }
     }
 }
